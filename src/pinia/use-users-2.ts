@@ -4,7 +4,7 @@ import type { User } from '../types'
 
 export const USERS_QUERY_KEY_2 = 'freaks'
 
-export const useUsersStore2 = defineQuery(() => {
+export const useUsersQuery2 = defineQuery(() => {
   const userId = ref(2)
 
   const query = useQuery({

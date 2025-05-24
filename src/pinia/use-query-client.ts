@@ -9,35 +9,26 @@ export function useQueryClient() {
   const queryCache = useQueryCache()
 
   function invalidateQueries(params: InvalidateQueriesParams) {
-    for (const key of params.activeKeys ?? []) {
-      const entries = queryCache.getEntries({
-        key: [key],
-        active: true,
-      })
+    const invalidateKeys = [params.activeKeys, params.inactiveKeys]
 
-      if (entries.length === 0) continue
+    invalidateKeys.forEach((keys, index) => {
+      if (!keys) return
 
-      const latest = entries.reduce((latest, current) => {
-        return current.when > latest.when ? current : latest
-      })
+      for (const key of keys) {
+        const entries = queryCache.getEntries({
+          key: [key],
+          active: !index,
+        })
 
-      queryCache.invalidateQueries(latest)
-    }
+        if (entries.length === 0) continue
 
-    for (const key of params.inactiveKeys ?? []) {
-      const entries = queryCache.getEntries({
-        key: [key],
-        active: false,
-      })
+        const latest = entries.reduce((latest, current) => {
+          return current.when > latest.when ? current : latest
+        })
 
-      if (entries.length === 0) continue
-
-      const latest = entries.reduce((latest, current) => {
-        return current.when > latest.when ? current : latest
-      })
-
-      queryCache.invalidateQueries(latest)
-    }
+        queryCache.invalidateQueries(latest)
+      }
+    })
   }
 
   return {
