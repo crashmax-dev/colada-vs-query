@@ -1,23 +1,23 @@
-import { createRouter, createWebHashHistory } from "vue-router";
+import { createRouter, createWebHashHistory } from 'vue-router'
 
 export const router = createRouter({
   history: createWebHashHistory(),
   routes: [
     {
       path: '/',
-      component: () => import('./pages/home.vue')
+      component: () => import('./pages/home.vue'),
     },
     {
       path: '/pinia',
-      component: () => import('./pages/pinia.vue')
+      component: () => import('./pages/pinia.vue'),
     },
     {
       path: '/pinia-2',
-      component: () => import('./pages/pinia-2.vue')
+      component: () => import('./pages/pinia-2.vue'),
     },
     {
       path: '/query',
-      component: () => import('./pages/query.vue')
-    }
+      component: () => import('./pages/query.vue'),
+    },
   ],
 })

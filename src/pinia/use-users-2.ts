@@ -1,6 +1,6 @@
-import { defineQuery, useQuery } from "@pinia/colada";
-import { ref } from "vue";
-import type { User } from "../types";
+import { defineQuery, useQuery } from '@pinia/colada'
+import { ref } from 'vue'
+import type { User } from '../types'
 
 export const USERS_QUERY_KEY_2 = 'freaks'
 
@@ -13,15 +13,15 @@ export const useUsersStore2 = defineQuery(() => {
     placeholderData: () => ({ id: -1, name: 'placeholderData' }),
     query: async () => {
       const req = await fetch(`/api/users/${userId.value}`, {
-        headers: { 'Content-Type': 'applications/json' }
+        headers: { 'Content-Type': 'applications/json' },
       })
       const res = await req.json() as User
       return res
-    }
+    },
   })
 
   return {
     ...query,
-    userId
+    userId,
   }
 })

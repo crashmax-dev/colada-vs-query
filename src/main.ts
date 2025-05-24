@@ -1,8 +1,8 @@
-import { createApp } from 'vue'
-import App from './app.vue'
-import { createPinia } from 'pinia'
 import { PiniaColada } from '@pinia/colada'
 import { VueQueryPlugin } from '@tanstack/vue-query'
+import { createPinia } from 'pinia'
+import { createApp } from 'vue'
+import App from './app.vue'
 import { router } from './router'
 
 const app = createApp(App)
@@ -19,7 +19,7 @@ app.use(PiniaColada, {
     refetchOnMount: true,
     refetchOnReconnect: false,
     refetchOnWindowFocus: false,
-  }
+  },
 })
 
 // tanstack
@@ -32,9 +32,9 @@ app.use(VueQueryPlugin, {
         refetchOnMount: true,
         refetchOnReconnect: false,
         refetchOnWindowFocus: false,
-      }
-    }
-  }
+      },
+    },
+  },
 })
 
 app.mount('#app')

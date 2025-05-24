@@ -1,10 +1,9 @@
-import { defineQuery, useQuery, useQueryCache } from "@pinia/colada";
-import { ref } from "vue";
-import type { User } from "../types";
-import { defineStore } from "pinia";
-import { USERS_QUERY_KEY_2 } from "./use-users-2";
-import { useQueryClient } from "./use-query-client";
-
+import { defineQuery, useQuery, useQueryCache } from '@pinia/colada'
+import { defineStore } from 'pinia'
+import { ref } from 'vue'
+import { useQueryClient } from './use-query-client'
+import { USERS_QUERY_KEY_2 } from './use-users-2'
+import type { User } from '../types'
 
 // 0.14.2
 // заменить defineStore на defineQuery
@@ -27,17 +26,17 @@ export const useUsersQuery = defineQuery(() => {
     placeholderData: () => ({ id: -1, name: 'placeholderData' }),
     query: async () => {
       const req = await fetch(`/api/users/${userId.value}`, {
-        headers: { 'Content-Type': 'applications/json' }
+        headers: { 'Content-Type': 'applications/json' },
       })
       const res = await req.json() as User
       return res
-    }
+    },
   })
 
   function invalidate() {
     invalidateQueries({
       activeKeys: [USERS_QUERY_KEY],
-      inactiveKeys: [USERS_QUERY_KEY_2]
+      inactiveKeys: [USERS_QUERY_KEY_2],
     })
   }
 
@@ -54,7 +53,7 @@ export const useUsersQuery = defineQuery(() => {
     userId,
     nextPage,
     prevPage,
-    invalidate
+    invalidate,
   }
 })
 
@@ -70,19 +69,18 @@ export const useUsersStore = defineStore('pinia-users', () => {
     placeholderData: () => ({ id: -1, name: 'placeholderData' }),
     query: async () => {
       const req = await fetch(`/api/users/${userId.value}`, {
-        headers: { 'Content-Type': 'applications/json' }
+        headers: { 'Content-Type': 'applications/json' },
       })
       const res = await req.json() as User
       return res
-    }
+    },
   })
 
   function invalidate() {
     queryCache.invalidateQueries({
-      key: [USERS_QUERY_KEY]
+      key: [USERS_QUERY_KEY],
     })
   }
-
 
   function nextPage() {
     userId.value++
@@ -97,6 +95,6 @@ export const useUsersStore = defineStore('pinia-users', () => {
     userId,
     nextPage,
     prevPage,
-    invalidate
+    invalidate,
   }
 })

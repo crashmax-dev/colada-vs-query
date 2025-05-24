@@ -2,16 +2,24 @@
   <nav>
     <ul>
       <li>
-        <router-link to="/">Home</router-link>
+        <router-link to="/">
+          Home
+        </router-link>
       </li>
       <li>
-        <router-link to="/pinia">Pinia</router-link>
+        <router-link to="/pinia">
+          Pinia
+        </router-link>
       </li>
       <li>
-        <router-link to="/pinia-2">Pinia 2</router-link>
+        <router-link to="/pinia-2">
+          Pinia 2
+        </router-link>
       </li>
       <li>
-        <router-link to="/query">Query</router-link>
+        <router-link to="/query">
+          Query
+        </router-link>
       </li>
     </ul>
   </nav>

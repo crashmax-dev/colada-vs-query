@@ -1,4 +1,4 @@
-import { useQueryCache } from "@pinia/colada"
+import { useQueryCache } from '@pinia/colada'
 
 interface InvalidateQueriesParams {
   activeKeys?: string[]
@@ -41,6 +41,6 @@ export function useQueryClient() {
   }
 
   return {
-    invalidateQueries
+    invalidateQueries,
   }
 }
