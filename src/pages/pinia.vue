@@ -1,19 +1,19 @@
 <template>
-  <button @click="users.prevPage">
+  <button @click="store.prevPage">
     Prev
   </button>
-  <span>{{ users.userId }}</span>
-  <button @click="users.nextPage">
+  <span>{{ store.userId }}</span>
+  <button @click="store.nextPage">
     Next
   </button>
-  <button @click="users.invalidate">
+  <button @click="store.invalidate">
     Invalidate
   </button>
-  <pre>{{ users.data }}</pre>
+  <pre>{{ store }}</pre>
 </template>
 
 <script setup lang="ts">
-import { useUsersQuery } from '../pinia/use-users'
+import { useUsersStore } from '../pinia/use-users'
 
-const users = useUsersQuery()
+const store = useUsersStore()
 </script>

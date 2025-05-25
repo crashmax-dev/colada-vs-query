@@ -15,7 +15,8 @@ app.use(pinia)
 app.use(PiniaColada, {
   pinia,
   queryOptions: {
-    staleTime: 10_000,
+    gcTime: 300_000,
+    staleTime: 5_000,
     refetchOnMount: true,
     refetchOnReconnect: false,
     refetchOnWindowFocus: false,
@@ -28,7 +29,7 @@ app.use(VueQueryPlugin, {
     defaultOptions: {
       queries: {
         gcTime: 300_000,
-        staleTime: 5000,
+        staleTime: 5_000,
         refetchOnMount: true,
         refetchOnReconnect: false,
         refetchOnWindowFocus: false,

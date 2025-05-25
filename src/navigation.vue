@@ -12,11 +12,6 @@
         </router-link>
       </li>
       <li>
-        <router-link to="/pinia-2">
-          Pinia 2
-        </router-link>
-      </li>
-      <li>
         <router-link to="/query">
           Query
         </router-link>
@@ -29,5 +24,14 @@
 
 </script>
 
-<style scoped lang="scss">
+<style scoped>
+a {
+  color: black;
+  text-decoration: none;
+}
+
+.router-link-active {
+  background-color: rebeccapurple;
+  color: white;
+}
 </style>

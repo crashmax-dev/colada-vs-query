@@ -1,9 +1,19 @@
 <template>
-  query
+  <button @click="store.prevPage">
+    Prev
+  </button>
+  <span>{{ store.userId }}</span>
+  <button @click="store.nextPage">
+    Next
+  </button>
+  <button @click="store.invalidate">
+    Invalidate
+  </button>
+  <pre>{{ store }}</pre>
 </template>
 
 <script setup lang="ts">
-</script>
+import { useUsersStore } from '../query/use-users'
 
-<style scoped lang="scss">
-</style>
+const store = useUsersStore()
+</script>

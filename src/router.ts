@@ -12,10 +12,6 @@ export const router = createRouter({
       component: () => import('./pages/pinia.vue'),
     },
     {
-      path: '/pinia-2',
-      component: () => import('./pages/pinia-2.vue'),
-    },
-    {
       path: '/query',
       component: () => import('./pages/query.vue'),
     },
