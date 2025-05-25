@@ -14,9 +14,10 @@ export const useUsersStore = defineQuery(() => {
     key: () => [USERS_QUERY_KEY, userId.value],
     initialData: () => ({ id: -1, name: 'initialData' }),
     placeholderData: () => ({ id: -1, name: 'placeholderData' }),
-    query: async () => {
+    query: async ({ signal }) => {
       const req = await fetch(`/api/users/${userId.value}`, {
         headers: { 'Content-Type': 'applications/json' },
+        signal,
       })
       const res = await req.json() as User
       return res
