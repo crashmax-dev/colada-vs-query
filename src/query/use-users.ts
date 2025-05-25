@@ -13,9 +13,10 @@ export const useUsersStore = defineQuery(USERS_QUERY_KEY, () => {
     queryKey: [USERS_QUERY_KEY, userId],
     initialDataUpdatedAt: 0,
     initialData: () => ({ id: -1, name: 'Unknown' }),
-    queryFn: async () => {
+    queryFn: async ({ signal }) => {
       const req = await fetch(`/api/users/${userId.value}`, {
         headers: { 'Content-Type': 'applications/json' },
+        signal,
       })
       const res = await req.json() as User
       return res
