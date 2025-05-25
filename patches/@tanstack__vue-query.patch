@@ -1,0 +1,12 @@
+diff --git a/build/modern/useBaseQuery.js b/build/modern/useBaseQuery.js
+index a8197d2f3bd47800881375662c045fd9c377e293..3937154f5bfaeab3e0a19042a823f7b2217b2c26 100644
+--- a/build/modern/useBaseQuery.js
++++ b/build/modern/useBaseQuery.js
+@@ -113,6 +113,7 @@ function useBaseQuery(Observer, options, queryClient) {
+   }
+   object.suspense = suspense;
+   object.refetch = refetch;
++  object.options = defaultedOptions;
+   return object;
+ }
+ export {

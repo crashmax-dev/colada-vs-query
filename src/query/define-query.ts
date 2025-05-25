@@ -1,5 +1,6 @@
+import { useQueryClient } from '@tanstack/vue-query'
 import { defineStore } from 'pinia'
-import type { UseQueryDefinedReturnType } from '@tanstack/vue-query'
+import type { UseQueryReturnType } from '@tanstack/vue-query'
 import type {
   _ExtractActionsFromSetupStore,
   _ExtractGettersFromSetupStore,
@@ -9,7 +10,7 @@ import type {
 
 export function defineQuery<
   Id extends string,
-  T extends UseQueryDefinedReturnType<unknown, unknown>,
+  T extends UseQueryReturnType<unknown, unknown>,
 >(
   id: Id,
   setupFn: () => T,
@@ -19,18 +20,24 @@ export function defineQuery<
     _ExtractGettersFromSetupStore<T>,
     _ExtractActionsFromSetupStore<T>
   > {
-  const storeFn = defineStore(id, setupFn)
+  const storeQueryFn = defineStore(id, setupFn)
 
   return () => {
-    const store = storeFn()
-
-    if (!('refetch' in store)) {
-      console.warn(`\`refetch\` is not available on this defineQuery('${id}') store.`)
-      return store
-    } else if (store.isStale && !store.isFetching) {
-      store.refetch()
+    const queryClient = useQueryClient()
+    const query = storeQueryFn()
+    const queryOption = {
+      ...queryClient.getDefaultOptions().queries,
+      ...query.options,
     }
 
-    return store
+    if ('refetch' in query
+      && !query.isFetching
+      && ((queryOption.refetchOnMount && query.isStale)
+        || queryOption.refetchOnMount === 'always')
+    ) {
+      query.refetch()
+    }
+
+    return query
   }
 }

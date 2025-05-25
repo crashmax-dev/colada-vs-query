@@ -2,17 +2,17 @@
   <nav>
     <ul>
       <li>
-        <router-link to="/">
+        <router-link class="link" to="/">
           Home
         </router-link>
       </li>
       <li>
-        <router-link to="/pinia">
+        <router-link class="link" to="/pinia">
           Pinia
         </router-link>
       </li>
       <li>
-        <router-link to="/query">
+        <router-link class="link" to="/query">
           Query
         </router-link>
       </li>
@@ -25,13 +25,14 @@
 </script>
 
 <style scoped>
-a {
-  color: black;
+.link {
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
   text-decoration: none;
 }
 
 .router-link-active {
   background-color: rebeccapurple;
-  color: white;
 }
 </style>

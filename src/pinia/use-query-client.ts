@@ -32,6 +32,7 @@ export function useQueryClient() {
   }
 
   return {
+    ...queryCache,
     invalidateQueries,
   }
 }
