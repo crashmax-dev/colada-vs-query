@@ -6,10 +6,10 @@ settings:
 
 patchedDependencies:
   '@tanstack/query-core':
-    hash: c4af5a4zvlalbdvoxjn5nzelmy
+    hash: fg2h53qks2rennmu3ecje4tzsm
     path: patches/@tanstack__query-core.patch
   '@tanstack/vue-query':
-    hash: sdnibpndgmjgczlzoatwzigbgq
+    hash: bl5mlr6fbit3wuj74343wmeu5u
     path: patches/@tanstack__vue-query.patch
 
 importers:
@@ -21,10 +21,10 @@ importers:
         version: 0.14.2(pinia@3.0.2(typescript@5.8.3)(vue@3.5.14(typescript@5.8.3)))
       '@tanstack/query-core':
         specifier: 5.77.0
-        version: 5.77.0(patch_hash=c4af5a4zvlalbdvoxjn5nzelmy)
+        version: 5.77.0(patch_hash=fg2h53qks2rennmu3ecje4tzsm)
       '@tanstack/vue-query':
         specifier: 5.77.0
-        version: 5.77.0(patch_hash=sdnibpndgmjgczlzoatwzigbgq)(vue@3.5.14(typescript@5.8.3))
+        version: 5.77.0(patch_hash=bl5mlr6fbit3wuj74343wmeu5u)(vue@3.5.14(typescript@5.8.3))
       pinia:
         specifier: 3.0.2
         version: 3.0.2(typescript@5.8.3)(vue@3.5.14(typescript@5.8.3))
@@ -2312,12 +2312,12 @@ snapshots:
     dependencies:
       remove-accents: 0.5.0
 
-  '@tanstack/query-core@5.77.0(patch_hash=c4af5a4zvlalbdvoxjn5nzelmy)': {}
+  '@tanstack/query-core@5.77.0(patch_hash=fg2h53qks2rennmu3ecje4tzsm)': {}
 
-  '@tanstack/vue-query@5.77.0(patch_hash=sdnibpndgmjgczlzoatwzigbgq)(vue@3.5.14(typescript@5.8.3))':
+  '@tanstack/vue-query@5.77.0(patch_hash=bl5mlr6fbit3wuj74343wmeu5u)(vue@3.5.14(typescript@5.8.3))':
     dependencies:
       '@tanstack/match-sorter-utils': 8.19.4
-      '@tanstack/query-core': 5.77.0(patch_hash=c4af5a4zvlalbdvoxjn5nzelmy)
+      '@tanstack/query-core': 5.77.0(patch_hash=fg2h53qks2rennmu3ecje4tzsm)
       '@vue/devtools-api': 6.6.4
       vue: 3.5.14(typescript@5.8.3)
       vue-demi: 0.14.10(vue@3.5.14(typescript@5.8.3))

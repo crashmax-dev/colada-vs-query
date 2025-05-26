@@ -1,12 +1,25 @@
+diff --git a/build/legacy/hydration-B3ndIyL6.d.ts b/build/legacy/hydration-B3ndIyL6.d.ts
+index 9fcee03aaa66f362a035e7fade644a160136744c..74a774f6d34f2e7ee7cc7fdd0c9e32726cdebce4 100644
+--- a/build/legacy/hydration-B3ndIyL6.d.ts
++++ b/build/legacy/hydration-B3ndIyL6.d.ts
+@@ -807,6 +807,8 @@ interface FetchPreviousPageOptions extends ResultOptions {
+ type QueryStatus = 'pending' | 'error' | 'success';
+ type FetchStatus = 'fetching' | 'paused' | 'idle';
+ interface QueryObserverBaseResult<TData = unknown, TError = DefaultError> {
++    options: QueryObserverOptions;
++
+     /**
+      * The last successfully resolved data for the query.
+      */
 diff --git a/build/modern/hydration-B3ndIyL6.d.ts b/build/modern/hydration-B3ndIyL6.d.ts
-index 9fcee03aaa66f362a035e7fade644a160136744c..3a5bcdbf2bd4d8f74f1b344188161be9fa7f7065 100644
+index 9fcee03aaa66f362a035e7fade644a160136744c..74a774f6d34f2e7ee7cc7fdd0c9e32726cdebce4 100644
 --- a/build/modern/hydration-B3ndIyL6.d.ts
 +++ b/build/modern/hydration-B3ndIyL6.d.ts
 @@ -807,6 +807,8 @@ interface FetchPreviousPageOptions extends ResultOptions {
  type QueryStatus = 'pending' | 'error' | 'success';
  type FetchStatus = 'fetching' | 'paused' | 'idle';
  interface QueryObserverBaseResult<TData = unknown, TError = DefaultError> {
-+    options: QueryObserverOptions
++    options: QueryObserverOptions;
 +
      /**
       * The last successfully resolved data for the query.
