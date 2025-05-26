@@ -11,6 +11,7 @@ export const useUsersStore = defineQuery(USERS_QUERY_KEY, () => {
 
   const query = useQuery({
     queryKey: [USERS_QUERY_KEY, userId],
+    initialDataUpdatedAt: 0,
     initialData: () => ({ id: -1, name: 'Unknown' }),
     placeholderData: (data) => data,
     queryFn: async ({ signal }) => {
